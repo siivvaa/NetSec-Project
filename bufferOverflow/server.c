@@ -10,6 +10,8 @@
 #define PORT 8080 
 #define SA struct sockaddr 
 
+// gcc server.c -fno-stack-protector -o server : to run the server.
+
 char password[] = "abc123";
 char passBuffer[80];
 // Function designed for chat between client and server. 
@@ -23,8 +25,13 @@ void authFunc(int connfd)
     strcpy(enteredPassword, passBuffer);
     if(strcmp(enteredPassword, password)==0)
     {
+		printf("\nCredentials correct!\n");
         authFlag = 1;
     }
+	else
+	{
+		printf("\nIncorrect credentials!\n");
+	}
     
     if(authFlag != 0)
     {

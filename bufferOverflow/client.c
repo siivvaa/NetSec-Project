@@ -9,6 +9,9 @@
 #define MAX 80
 #define PORT 8080
 #define SA struct sockaddr
+
+// gcc client.c -fno-stack-protector -o client : to run the client program.
+
 void loginFunc(int sockfd)
 {
 	char clientBuffer[MAX];
